@@ -105,24 +105,28 @@ export const PILL_ROW_2 = [
 export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
-    title: 'Frontend Development',
+    title: 'Frontend Developers',
     count: 3,
     color: '#8BD8A8',
+    bgColor: '#E8F8F0',
+    borderColor: '#B8EBD2',
     skills: [
-      { name: 'React.js', level: 'Proficient', levelColor: '#F3D94E' },
-      { name: 'Tailwind CSS', level: 'Advanced', levelColor: '#9BD8F5' },
-      { name: 'HTML5 & CSS3', level: 'Expert', levelColor: '#8BD8A8' },
+      { name: 'HTML 5', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'CSS', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'Java Script', level: 'Learning', levelColor: '#F3D94E' },
     ],
   },
   {
     id: 'backend',
-    title: 'Backend & Database',
+    title: 'Backend & Databases',
     count: 3,
     color: '#F3A8C8',
+    bgColor: '#FDF0F3',
+    borderColor: '#F8C8D8',
     skills: [
-      { name: 'PHP', level: 'Advanced', levelColor: '#9BD8F5' },
-      { name: 'Laravel', level: 'Proficient', levelColor: '#F3D94E' },
-      { name: 'MySQL', level: 'Advanced', levelColor: '#9BD8F5' },
+      { name: 'PHP', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'MySQL', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'Supabase', level: 'Learning', levelColor: '#F3D94E' },
     ],
   },
   {
@@ -130,9 +134,11 @@ export const SKILL_CATEGORIES = [
     title: 'Design',
     count: 2,
     color: '#9BD8F5',
+    bgColor: '#EDF6FD',
+    borderColor: '#C6E2F8',
     skills: [
-      { name: 'Figma', level: 'Proficient', levelColor: '#F3D94E' },
-      { name: 'Photoshop', level: 'Proficient', levelColor: '#F3D94E' },
+      { name: 'Canva', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'Figma', level: 'Learning', levelColor: '#F3D94E' },
     ],
   },
   {
@@ -140,10 +146,12 @@ export const SKILL_CATEGORIES = [
     title: 'Office',
     count: 3,
     color: '#F3D94E',
+    bgColor: '#FEF9E7',
+    borderColor: '#F9E8A2',
     skills: [
-      { name: 'Excel', level: 'Advanced', levelColor: '#9BD8F5' },
-      { name: 'Word', level: 'Expert', levelColor: '#8BD8A8' },
-      { name: 'PowerPoint', level: 'Advanced', levelColor: '#9BD8F5' },
+      { name: 'Excel', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'Word', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'Power Point', level: 'Learning', levelColor: '#F3D94E' },
     ],
   },
   {
@@ -151,6 +159,8 @@ export const SKILL_CATEGORIES = [
     title: 'Tools',
     count: 2,
     color: '#5EDDD0',
+    bgColor: '#E6FAF8',
+    borderColor: '#A8F2EC',
     skills: [
       { name: 'Git & GitHub', level: 'Advanced', levelColor: '#9BD8F5' },
       { name: 'VS Code', level: 'Expert', levelColor: '#8BD8A8' },

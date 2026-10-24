@@ -14,6 +14,50 @@ export default function TechnologyStack() {
     setOpenCategory(openCategory === id ? null : id);
   };
 
+  // Helper untuk menampilkan icon SVG khusus sesuai kategori UI referensi
+  const getCategoryIcon = (id) => {
+    switch (id) {
+      case 'frontend':
+        return (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        );
+      case 'backend':
+        return (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          </svg>
+        );
+      case 'design':
+        return (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+            <path d="M2 2l7.586 7.586"></path>
+            <circle cx="11" cy="11" r="2"></circle>
+          </svg>
+        );
+      case 'office':
+        return (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+        );
+      case 'tools':
+      default:
+        return (
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+        );
+    }
+  };
+
   return (
     <section id="skills" className="pt-20 pb-16">
       {/* Definisi animasi memutar jalan terus satu arah tanpa jeda pantulan */}
@@ -48,7 +92,7 @@ export default function TechnologyStack() {
         }
       `}</style>
 
-      {/* Header: Bersih tanpa background box pada teks Skills & Expertise */}
+      {/* Header */}
       <div className="text-center max-w-xl mx-auto mb-12">
         <span className="text-[#F3D94E] font-bold text-sm sm:text-base font-mono tracking-wide block mb-3">
           Skills & Expertise
@@ -61,7 +105,7 @@ export default function TechnologyStack() {
         </p>
       </div>
 
-      {/* 6 Overlapping Cards Deck dengan Efek Shadow Lembut & Sudut Membulat */}
+      {/* 6 Overlapping Cards Deck */}
       <div className="flex items-center justify-center -space-x-3 sm:-space-x-4 md:-space-x-6 pt-4 pb-12 overflow-visible px-4">
         {BIG_TECH_CARDS.map((card) => (
           <div
@@ -83,11 +127,9 @@ export default function TechnologyStack() {
         ))}
       </div>
 
-      {/* Pill Mini Badges: Bergerak Memutar Satu Arah & Berulang Tanpa Batas */}
+      {/* Pill Mini Badges */}
       <div className="space-y-4 mb-16">
-        {/* Baris 1: Batasan max-w-3xl, memutar dari kanan ke kiri */}
         <div className="max-w-3xl mx-auto overflow-hidden relative py-1">
-          {/* Efek pudar sisi kiri & kanan agar kartu tampak masuk/keluar secara mulus */}
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10" />
 
@@ -114,9 +156,7 @@ export default function TechnologyStack() {
           </div>
         </div>
 
-        {/* Baris 2: Batasan max-w-2xl, memutar dari kiri ke kanan */}
         <div className="max-w-2xl mx-auto overflow-hidden relative py-1">
-          {/* Efek pudar sisi kiri & kanan */}
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10" />
 
@@ -147,16 +187,16 @@ export default function TechnologyStack() {
       {/* Legend Tingkatan Skill */}
       <div className="flex flex-wrap items-center justify-end gap-4 text-[11px] font-mono text-neutral-500 mb-4 px-1">
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#F3A8C8]" /> Learning
+          <span className="w-2 h-2 rounded-full bg-[#F3D94E]" /> Learning
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#F3D94E]" /> Proficient
+          <span className="w-2 h-2 rounded-full bg-[#9BD8F5]" /> Proficient
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#9BD8F5]" /> Advanced
+          <span className="w-2 h-2 rounded-full bg-[#8BD8A8]" /> Advanced
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#8BD8A8]" /> Expert
+          <span className="w-2 h-2 rounded-full bg-[#F3A8C8]" /> Expert
         </div>
       </div>
 
@@ -168,20 +208,26 @@ export default function TechnologyStack() {
           return (
             <div
               key={cat.id}
-              className="border border-[#D8D8D8] rounded-xl overflow-hidden bg-white transition-all shadow-xs"
+              className="border rounded-xl overflow-hidden bg-white transition-all shadow-xs"
+              style={{ borderColor: cat.borderColor || '#D8D8D8' }}
             >
               <button
                 onClick={() => toggleCategory(cat.id)}
                 className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-neutral-50/50 transition-colors"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3.5">
+                  {/* Icon Kategori Sesuai Gambar UI Referensi */}
                   <div
-                    className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold font-mono"
-                    style={{ backgroundColor: `${cat.color}35`, color: '#111111' }}
+                    className="w-9 h-9 rounded-lg flex items-center justify-center font-bold"
+                    style={{
+                      backgroundColor: cat.bgColor || `${cat.color}20`,
+                      color: cat.color,
+                      border: `1px solid ${cat.borderColor || cat.color}`
+                    }}
                   >
-                    /
+                    {getCategoryIcon(cat.id)}
                   </div>
-                  <span className="font-bold text-sm tracking-tight font-mono">{cat.title}</span>
+                  <span className="font-bold text-sm tracking-tight font-mono text-[#111111]">{cat.title}</span>
                 </div>
                 <div className="flex items-center gap-3 text-neutral-400 text-xs font-mono">
                   <span>{cat.count} Skills</span>
@@ -190,18 +236,21 @@ export default function TechnologyStack() {
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 pt-2 border-t border-dashed border-[#E5E5E5] flex flex-wrap gap-2.5">
+                <div className="px-5 pb-5 pt-3 border-t border-dashed border-[#E5E5E5] flex flex-wrap gap-2.5">
                   {cat.skills.map((s, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 px-3 py-1.5 bg-[#FAFAFA] border border-[#E0E0E0] rounded-lg text-xs font-mono"
+                      className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono shadow-2xs transition-all"
+                      style={{
+                        backgroundColor: cat.bgColor || '#FAFAFA',
+                        border: `1px solid ${cat.borderColor || '#E0E0E0'}`,
+                      }}
                     >
                       <span
                         className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: s.levelColor }}
                       />
-                      <span className="font-medium text-neutral-800">{s.name}</span>
-                      <span className="text-[10px] text-neutral-400">({s.level})</span>
+                      <span className="font-bold text-neutral-800">{s.name}</span>
                     </div>
                   ))}
                 </div>

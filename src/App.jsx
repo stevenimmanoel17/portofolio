@@ -26,6 +26,9 @@ export default function App() {
         <Projects />
         <Experience />
         <Education />
+      </main>
+
+      <main className="max-w-4xl mx-auto px-6 sm:px-8">
         <Contact />
       </main>
 
