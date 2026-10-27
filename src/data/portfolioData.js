@@ -176,7 +176,12 @@ export const PROJECTS = [
     id: 1,
     title: 'Coding Project 01',
     description: 'A responsive web application built with clean architecture, modern React components, and performance optimization.',
-    tags: ['HTML5', 'CSS3', 'JS'],
+    // Ubah tags menjadi objek yang memiliki nama dan path ikon
+    tags: [
+      { name: 'HTML5', icon: '/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+      { name: 'CSS3', icon: '/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'JavaScript', icon: '/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
+    ],
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&auto=format&fit=crop&q=70',
     link: '#'
   },
@@ -184,7 +189,11 @@ export const PROJECTS = [
     id: 2,
     title: 'Coding Project 02',
     description: 'Full-stack application featuring database management, structured REST APIs, and automated UI interactions.',
-    tags: ['React', 'Tailwind', 'PHP'],
+    tags: [
+      { name: 'React', icon: '/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+      { name: 'Tailwind', icon: '/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'PHP', icon: '/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' }
+    ],
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&auto=format&fit=crop&q=70',
     link: '#'
   },
@@ -192,7 +201,11 @@ export const PROJECTS = [
     id: 3,
     title: 'Coding Project 03',
     description: 'Internal operational dashboard with data filtering, reactive UI, and clean data modeling.',
-    tags: ['Laravel', 'MySQL', 'Tailwind'],
+    tags: [
+      { name: 'PHP', icon: '/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+      { name: 'MySQL', icon: '/assets/skills/mysql.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+      { name: 'Supabase', icon: '/assets/skills/supabase.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' }
+    ],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&auto=format&fit=crop&q=70',
     link: '#'
   },
@@ -200,7 +213,11 @@ export const PROJECTS = [
     id: 4,
     title: 'Coding Project 04',
     description: 'Portfolio design system recreation with custom CSS layout grids, monospace typography, and retro components.',
-    tags: ['React', 'Vite', 'CSS3'],
+    tags: [
+      { name: 'Figma', icon: '/assets/skills/figma.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      { name: 'CSS3', icon: '/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'JavaScript', icon: '/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
+    ],
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&auto=format&fit=crop&q=70',
     link: '#'
   },

@@ -5,7 +5,7 @@ export default function Experience() {
   return (
     <section id="experience" className="pt-8 pb-16">
       <div className="mb-10">
-        <span className="text-[11px] font-bold text-[#9BD8F5] uppercase tracking-wider bg-[#EBF6FC] px-2 py-0.5 rounded border border-[#9BD8F5]/40">
+        <span className="text-[#9BD8F5] text-sm sm:text-base font-bold  font-mono tracking-wide block mb-3">
           Work History
         </span>
         <h2 className="text-2xl font-bold mt-2 tracking-tight">Work Experience</h2>

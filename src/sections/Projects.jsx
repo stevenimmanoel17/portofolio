@@ -8,15 +8,17 @@ export default function Projects() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
         <div>
-          <span className="text-[11px] font-bold text-[#F58A8A] uppercase tracking-wider bg-[#FDEEEE] px-2 py-0.5 rounded border border-[#F58A8A]/30">
+          <span className="text-[#F58A8A] font-bold text-sm sm:text-base font-mono tracking-wide block mb-3">
             Selected Works
           </span>
-          <h2 className="text-2xl font-bold mt-2 tracking-tight">Project</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight font-mono">
+            Project
+          </h2>
           <p className="text-xs sm:text-sm text-neutral-500 mt-1">
             A collection of web applications and digital experiences I've built.
           </p>
         </div>
-        <span className="text-xs font-mono text-neutral-400">
+        <span className="text-xs font-mono text-neutral-500">
           0{PROJECTS.length} / Total Projects
         </span>
       </div>
@@ -47,15 +49,24 @@ export default function Projects() {
               </p>
             </div>
 
-            {/* Tag Badges di Bawah */}
-            <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-neutral-100">
+            {/* Kotak Logo Ikon Skill di Bawah */}
+            <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-neutral-100">
               {proj.tags.map((tag, i) => (
-                <span
+                <div
                   key={i}
-                  className="px-2 py-0.5 rounded text-[10px] font-mono bg-neutral-100 text-neutral-600 border border-neutral-200"
+                  title={tag.name}
+                  className="w-9 h-9 bg-white border border-[#D8D8D8] rounded-lg p-1.5 flex items-center justify-center shadow-2xs hover:border-black transition-colors"
                 >
-                  {tag}
-                </span>
+                  <img
+                    src={tag.icon}
+                    alt={tag.name}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = tag.fallback;
+                    }}
+                    className="w-full h-full object-contain pointer-events-none select-none"
+                  />
+                </div>
               ))}
             </div>
           </div>
