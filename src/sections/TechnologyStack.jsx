@@ -185,7 +185,7 @@ export default function TechnologyStack() {
       </div>
 
       {/* Legend Tingkatan Skill */}
-      <div className="flex flex-wrap items-center justify-end gap-4 text-[11px] font-mono text-neutral-500 mb-4 px-1">
+      <div className="flex flex-wrap items-center justify-end gap-4 text-sm font-mono text-neutral-500 mb-4 px-1">
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-[#F3D94E]" /> Learning
         </div>

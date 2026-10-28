@@ -5,7 +5,7 @@ export const HERO_DATA = {
   name: "Steven Immanoel",
   headline: "Designing and building a website that supports your needs.",
   subtitle: "Junior Web-Development .",
-  cvUrl: "#", // Ganti dengan path file CV Anda di public/assets/ (contoh: '/assets/cv.pdf')
+  cvUrl: "public/assets/CV ATS_Steven Immanoel_9.pdf", // Ganti dengan path file CV Anda di public/assets/ (contoh: '/assets/cv.pdf')
 };
 
 // ==========================================
@@ -246,10 +246,10 @@ export const EXPERIENCES = [
 export const EDUCATION = [
   {
     period: "2020 - 2024",
+    gpa: "3.75 / 4.00",
     dotColor: "#8BD8A8",
     institution: "Universitas Sumatera Utara",
     degree: "S1 Ilmu Komputer",
-    badge: "Bachelor of Computer Science",
     description: "Fokus studi pada rekayasa perangkat lunak, sistem basis data, jaringan komputer, dan algoritma pemrograman."
   }
 ];

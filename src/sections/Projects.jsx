@@ -11,7 +11,7 @@ export default function Projects() {
           <span className="text-[#F58A8A] font-bold text-sm sm:text-base font-mono tracking-wide block mb-3">
             Selected Works
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight font-mono">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight font-mono">
             Project
           </h2>
           <p className="text-xs sm:text-sm text-neutral-500 mt-1">

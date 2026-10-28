@@ -1,33 +1,85 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { EDUCATION } from '../data/portfolioData';
 
 export default function Education() {
-  return (
-    <section id="education" className="pt-8 pb-16">
-      <h2 className="text-2xl font-bold mb-10 tracking-tight">Education</h2>
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
-      <div className="space-y-6">
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <section id="education" ref={sectionRef} className="pt-8 pb-16 overflow-hidden">
+      <div className="mb-10">
+        <span className="text-[#8BD8A8] font-bold text-sm sm:text-base font-mono tracking-wide block mb-3">
+          Education History
+        </span>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight font-mono">Education</h2>
+      </div>
+
+      {/* Kontainer utama dengan efek transisi muncul dari kiri ke kanan (-translate-x ke translate-x-0) */}
+      <div 
+        className={`relative space-y-12 transform transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+        }`}
+      >
+        
+        {/* Garis Vertikal Penghubung Antar Titik */}
+        <div className="absolute left-[167px] sm:left-[205px] top-3 bottom-3 w-[2px] bg-[#D8D8D8] pointer-events-none" />
+
         {EDUCATION.map((edu, idx) => (
-          <div key={idx} className="flex flex-col sm:flex-row items-start gap-4 sm:gap-8">
-            <span className="w-36 text-xs font-mono text-neutral-400 shrink-0">
-              {edu.period}
-            </span>
-            <div className="flex items-start gap-3">
-              <span
-                className="w-2.5 h-2.5 rounded-full mt-1.5 shrink-0"
-                style={{ backgroundColor: edu.dotColor }}
-              />
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <h3 className="font-bold text-base tracking-tight">{edu.institution}</h3>
-                  <span className="text-[10px] font-mono px-2 py-0.5 bg-neutral-100 border border-neutral-200 rounded text-neutral-600">
-                    {edu.badge}
-                  </span>
-                </div>
-                <span className="text-xs font-semibold text-neutral-700 block mb-2 font-mono">
+          <div key={idx} className="relative flex flex-col sm:flex-row items-baseline gap-4 sm:gap-8">
+            
+            <div className="w-36 shrink-0 flex flex-col gap-1">
+              {/* Tahun / Periode */}
+              <span className="w-36 text-sm font-mono text-neutral-500 shrink-0 font-medium">
+                {edu.period}
+              </span>
+
+              {/* GPA */}
+              <span className="text-xs font-mono font-bold mt-1" style={{ color: edu.dotColor }}>
+                {edu.gpa}
+              </span>
+            </div>
+            
+            {/* Container konten kanan */}
+            <div className="flex flex-col w-full ml-4 sm:ml-6">
+              {/* Baris Institusi, Badge, & Titik Indikator yang Sejajar */}
+              <div className="flex flex-wrap items-center gap-3">
+                <span
+                  className="w-3 h-3 rounded-full shrink-0 z-10 shadow-xs"
+                  style={{ backgroundColor: edu.dotColor }}
+                />
+                <h3 className="font-bold text-2xl tracking-tight leading-none text-[#111111]">
+                  {edu.institution}
+                </h3>
+              </div>
+
+              {/* Baris Gelar & Deskripsi */}
+              <div className="pl-6 sm:pl-6 mt-2.5">
+                <span 
+                  className="text-sm font-semibold block mb-2 font-mono"
+                  style={{ color: edu.dotColor }}
+                >
                   {edu.degree}
                 </span>
-                <p className="text-xs text-neutral-600 leading-relaxed max-w-2xl">
+                <p className="text-sm text-neutral-600 leading-relaxed max-w-2xl font-mono">
                   {edu.description}
                 </p>
               </div>

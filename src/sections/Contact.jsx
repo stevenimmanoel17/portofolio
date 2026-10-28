@@ -1,12 +1,102 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, ArrowRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from '../components/SocialIcons';
 
 export default function Contact() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const socials = [
+    {
+      id: 1,
+      name: "GitHub",
+      val: "stevenimmanoel17",
+      href: "https://github.com/stevenimmanoel17",
+      icon: GithubIcon,
+      bg: "bg-[#111111] text-white",
+      border: "border-transparent hover:bg-neutral-800",
+      subText: "text-neutral-400"
+    },
+    {
+      id: 2,
+      name: "Email",
+      val: "stevenimmanoel15@gmail.com",
+      href: "mailto:stevenimmanoel15@gmail.com?subject=Halo%20Walawe&body=Halo,%20saya%20ingin%20menghubungi%20Anda.",
+      icon: Mail,
+      bg: "bg-white text-black",
+      border: "border-[#D8D8D8] hover:border-black",
+      iconColor: "text-neutral-700",
+      subText: "text-neutral-500"
+    },
+    {
+      id: 3,
+      name: "LinkedIn",
+      val: "Steven immanoel",
+      href: "https://www.linkedin.com/in/steven-immanoel/",
+      icon: LinkedinIcon,
+      bg: "bg-[#EBF5FB] text-[#0A66C2]",
+      border: "border-[#CDE5F6] hover:border-[#0A66C2]",
+      subText: "text-neutral-600"
+    },
+    {
+      id: 4,
+      name: "Instagram",
+      val: "nooeell.exe",
+      href: "https://www.instagram.com/nooeell.exe/",
+      icon: InstagramIcon,
+      bg: "bg-[#FDEEF4] text-[#D82D7E]",
+      border: "border-[#F9CFE0] hover:border-[#D8D8D8]",
+      subText: "text-neutral-600"
+    }
+  ];
+
   return (
-    <section id="contact" className="py-16">
-      <div className="border border-[#D8D8D8] rounded-2xl p-6 sm:p-10 bg-white shadow-xs">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+    <section id="contact" ref={sectionRef} className="py-16 overflow-hidden">
+      <style>{`
+        @keyframes socialRoll {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            /* Bergeser tepat sejauh satu set data penuh (misal 4 item) agar transisi perulangannya tak terlihat patah */
+            transform: translateY(calc(-100% / 3));
+          }
+        }
+        .animate-social-roll {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          animation: socialRoll 12s linear infinite;
+        }
+      `}</style>
+
+      {/* Box Utama dengan Efek Timbul ke Atas */}
+      <div
+        className={`border border-[#D8D8D8] rounded-2xl p-6 sm:p-10 bg-white shadow-xs transform transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-32'
+        }`}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
           {/* Kolom Kiri: Pesan Ajakan */}
           <div className="md:col-span-6 flex flex-col justify-start items-start text-left">
@@ -21,73 +111,39 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Kolom Kanan: 4 Kartu Link */}
-          <div className="md:col-span-6 flex flex-col gap-2.5">
-            {/* GitHub (Black Card) */}
-            <a
-              href="https://github.com/stevenimmanoel17"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#111111] text-white p-3.5 rounded-xl flex items-center justify-between hover:bg-neutral-800 transition-colors shadow-xs"
+          {/* Kolom Kanan: Efek Rolling Kartu Sosial Media */}
+          <div className="md:col-span-6 h-56 overflow-hidden relative rounded-xl p-2 bg-transparent flex flex-col justify-center">
+            
+            {/* Wrapper Animasi Rolling (Diduplikasi 3 kali agar pergeseran kalkulasi persentasenya mulus tanpa jeda) */}
+            <div 
+              className="animate-social-roll"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
             >
-              <div className="flex items-center gap-3">
-                <GithubIcon className="w-5 h-5" />
-                <div>
-                  <div className="text-xs font-bold font-mono">GitHub</div>
-                  <div className="text-[10px] text-neutral-400">stevenimmanoel17</div>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-neutral-400" />
-            </a>
+              {[...socials, ...socials, ...socials].map((s, idx) => {
+                const IconComp = s.icon;
+                return (
+                  <a
+                    key={`${s.id}-${idx}`}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${s.bg} border ${s.border} p-3.5 rounded-xl flex items-center justify-between transition-all shadow-xs shrink-0 cursor-pointer`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <IconComp className={`w-5 h-5 ${s.iconColor || ''}`} />
+                      <div>
+                        <div className="text-xs font-bold font-mono">{s.name}</div>
+                        <div className={`text-[10px] ${s.subText}`}>{s.val}</div>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 opacity-60" />
+                  </a>
+                );
+              })}
+            </div>
 
-            {/* Email (White Card) */}
-            <a
-              href="mailto:stevenimmanoel15@gmail.com?subject=Halo%20Walawe&body=Halo,%20saya%20ingin%20menghubungi%20Anda."
-              className="bg-white border border-[#D8D8D8] text-black p-3.5 rounded-xl flex items-center justify-between hover:border-black transition-colors shadow-2xs"
-            >
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-neutral-700" />
-                <div>
-                  <div className="text-xs font-bold font-mono">Email</div>
-                  <div className="text-[10px] text-neutral-500">stevenimmanoel15@gmail.com</div>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-neutral-400" />
-            </a>
-
-            {/* LinkedIn (Light Blue Card) */}
-            <a
-              href="https://www.linkedin.com/in/steven-immanoel/"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#EBF5FB] border border-[#CDE5F6] text-[#0A66C2] p-3.5 rounded-xl flex items-center justify-between hover:border-[#0A66C2] transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <LinkedinIcon className="w-5 h-5" />
-                <div>
-                  <div className="text-xs font-bold font-mono text-[#0A66C2]">LinkedIn</div>
-                  <div className="text-[10px] text-neutral-600">Steven immanoel</div>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#0A66C2]/70" />
-            </a>
-
-            {/* Instagram (Light Pink Card) */}
-            <a
-              href="https://www.instagram.com/nooeell.exe/"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#FDEEF4] border border-[#F9CFE0] text-[#D82D7E] p-3.5 rounded-xl flex items-center justify-between hover:border-[#D82D7E] transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <InstagramIcon className="w-5 h-5" />
-                <div>
-                  <div className="text-xs font-bold font-mono text-[#D82D7E]">Instagram</div>
-                  <div className="text-[10px] text-neutral-600">nooeell.exe</div>
-                </div>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#D82D7E]/70" />
-            </a>
           </div>
 
         </div>
