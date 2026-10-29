@@ -82,12 +82,14 @@ export const BIG_TECH_CARDS = [
 // TECHNOLOGY STACK - PILL MINI BADGES
 // ==========================================
 export const PILL_ROW_1 = [
-  { name: 'HTML  5', icon: '/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'HTML5', icon: '/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'CSS', icon: '/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'Java  Script', icon: '/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'Java Script', icon: '/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { name: 'Supabase', icon: '/assets/skills/supabase.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
   { name: 'PHP', icon: '/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
   { name: 'MySQL', icon: '/assets/skills/mysql.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  { name: 'Arduino IDE', icon: '/assets/skills/arduino.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg' 
+},
 ];
 
 export const PILL_ROW_2 = [
@@ -96,7 +98,7 @@ export const PILL_ROW_2 = [
   { name: 'Canva', icon: '/assets/skills/canva.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
   { name: 'Word', icon: '/assets/skills/word.png', fallback: 'https://img.icons8.com/color/48/microsoft-word-2019--v2.png' },
   { name: 'Excel', icon: '/assets/skills/excel.png', fallback: 'https://img.icons8.com/color/48/microsoft-excel-2019--v1.png' },
-  { name: 'Power  Point', icon: '/assets/skills/ppt.png', fallback: 'https://img.icons8.com/color/48/microsoft-powerpoint-2019--v1.png' },
+  { name: 'Power Point', icon: '/assets/skills/ppt.png', fallback: 'https://img.icons8.com/color/48/microsoft-powerpoint-2019--v1.png' },
 ];
 
 // ==========================================
@@ -106,7 +108,6 @@ export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
     title: 'Frontend Developers',
-    count: 3,
     color: '#8BD8A8',
     bgColor: '#E8F8F0',
     borderColor: '#B8EBD2',
@@ -119,7 +120,6 @@ export const SKILL_CATEGORIES = [
   {
     id: 'backend',
     title: 'Backend & Databases',
-    count: 3,
     color: '#F3A8C8',
     bgColor: '#FDF0F3',
     borderColor: '#F8C8D8',
@@ -127,12 +127,12 @@ export const SKILL_CATEGORIES = [
       { name: 'PHP', level: 'Learning', levelColor: '#F3D94E' },
       { name: 'MySQL', level: 'Learning', levelColor: '#F3D94E' },
       { name: 'Supabase', level: 'Learning', levelColor: '#F3D94E' },
+      { name: 'Python', level: 'Learning', levelColor: '#F3D94E' },
     ],
   },
   {
     id: 'design',
     title: 'Design',
-    count: 2,
     color: '#9BD8F5',
     bgColor: '#EDF6FD',
     borderColor: '#C6E2F8',
@@ -144,7 +144,6 @@ export const SKILL_CATEGORIES = [
   {
     id: 'office',
     title: 'Office',
-    count: 3,
     color: '#F3D94E',
     bgColor: '#FEF9E7',
     borderColor: '#F9E8A2',
@@ -157,7 +156,6 @@ export const SKILL_CATEGORIES = [
   {
     id: 'tools',
     title: 'Tools',
-    count: 2,
     color: '#5EDDD0',
     bgColor: '#E6FAF8',
     borderColor: '#A8F2EC',
@@ -174,6 +172,7 @@ export const SKILL_CATEGORIES = [
 export const PROJECTS = [
   {
     id: 1,
+    category: 'web',
     title: 'Coding Project 01',
     description: 'A responsive web application built with clean architecture, modern React components, and performance optimization.',
     // Ubah tags menjadi objek yang memiliki nama dan path ikon
@@ -187,6 +186,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
+    category: 'data',
     title: 'Coding Project 02',
     description: 'Full-stack application featuring database management, structured REST APIs, and automated UI interactions.',
     tags: [
@@ -199,6 +199,7 @@ export const PROJECTS = [
   },
   {
     id: 3,
+    category: 'design',
     title: 'Coding Project 03',
     description: 'Internal operational dashboard with data filtering, reactive UI, and clean data modeling.',
     tags: [
@@ -211,6 +212,7 @@ export const PROJECTS = [
   },
   {
     id: 4,
+    category: 'web',
     title: 'Coding Project 04',
     description: 'Portfolio design system recreation with custom CSS layout grids, monospace typography, and retro components.',
     tags: [

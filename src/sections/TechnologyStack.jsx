@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import {
   BIG_TECH_CARDS,
@@ -9,12 +9,53 @@ import {
 
 export default function TechnologyStack() {
   const [openCategory, setOpenCategory] = useState('frontend');
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
+  const [isCardsVisible, setIsCardsVisible] = useState(false);
+  const [isPillsVisible, setIsPillsVisible] = useState(false);
+  const [isLegendVisible, setIsLegendVisible] = useState(false);
+  const [isAccordionVisible, setIsAccordionVisible] = useState(false); // State untuk animasi Accordion
+
+  const headerRef = useRef(null);
+  const cardsRef = useRef(null);
+  const pillsRef = useRef(null);
+  const legendRef = useRef(null);
+  const accordionRef = useRef(null); // Ref untuk Accordion
+
+  useEffect(() => {
+    const createObserver = (setter) => {
+      return new IntersectionObserver(
+        ([entry]) => {
+          setter(entry.isIntersecting);
+        },
+        { threshold: 0.15 }
+      );
+    };
+
+    const headerObserver = createObserver(setIsHeaderVisible);
+    const cardsObserver = createObserver(setIsCardsVisible);
+    const pillsObserver = createObserver(setIsPillsVisible);
+    const legendObserver = createObserver(setIsLegendVisible);
+    const accordionObserver = createObserver(setIsAccordionVisible); // Observer Accordion
+
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    if (cardsRef.current) cardsObserver.observe(cardsRef.current);
+    if (pillsRef.current) pillsObserver.observe(pillsRef.current);
+    if (legendRef.current) legendObserver.observe(legendRef.current);
+    if (accordionRef.current) accordionObserver.observe(accordionRef.current);
+
+    return () => {
+      if (headerRef.current) headerObserver.unobserve(headerRef.current);
+      if (cardsRef.current) cardsObserver.unobserve(cardsRef.current);
+      if (pillsRef.current) pillsObserver.unobserve(pillsRef.current);
+      if (legendRef.current) legendObserver.unobserve(legendRef.current);
+      if (accordionRef.current) accordionObserver.unobserve(accordionRef.current);
+    };
+  }, []);
 
   const toggleCategory = (id) => {
     setOpenCategory(openCategory === id ? null : id);
   };
 
-  // Helper untuk menampilkan icon SVG khusus sesuai kategori UI referensi
   const getCategoryIcon = (id) => {
     switch (id) {
       case 'frontend':
@@ -59,8 +100,7 @@ export default function TechnologyStack() {
   };
 
   return (
-    <section id="skills" className="pt-20 pb-16">
-      {/* Definisi animasi memutar jalan terus satu arah tanpa jeda pantulan */}
+    <section id="skills" className="pt-20 pb-16 overflow-hidden">
       <style>{`
         @keyframes loopScrollLeft {
           0% {
@@ -92,8 +132,13 @@ export default function TechnologyStack() {
         }
       `}</style>
 
-      {/* Header */}
-      <div className="text-center max-w-xl mx-auto mb-12">
+      {/* Header dengan Animasi Drop Down (Masuk) & Drop Up (Keluar) */}
+      <div
+        ref={headerRef}
+        className={`text-center max-w-xl mx-auto mb-12 transform transition-all duration-700 ease-out ${
+          isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-16'
+        }`}
+      >
         <span className="text-[#F3D94E] font-bold text-sm sm:text-base font-mono tracking-wide block mb-3">
           Skills & Expertise
         </span>
@@ -105,30 +150,46 @@ export default function TechnologyStack() {
         </p>
       </div>
 
-      {/* 6 Overlapping Cards Deck */}
-      <div className="flex items-center justify-center -space-x-3 sm:-space-x-4 md:-space-x-6 pt-4 pb-12 overflow-visible px-4">
-        {BIG_TECH_CARDS.map((card) => (
-          <div
-            key={card.id}
-            className={`w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-[20px] sm:rounded-[24px] md:rounded-[26px] shadow-[0_12px_32px_rgba(0,0,0,0.11)] border border-neutral-100/80 flex items-center justify-center p-3 sm:p-4 md:p-5 transform transition-all duration-300 hover:scale-110 hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.16)] hover:z-30 shrink-0 ${
-              card.rotate
-            } ${card.zIndex} ${card.elevated ? '-translate-y-2' : ''}`}
-          >
-            <img
-              src={card.icon}
-              alt={card.name}
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = card.fallback;
-              }}
-              className="w-full h-full object-contain pointer-events-none drop-shadow-2xs select-none"
-            />
-          </div>
-        ))}
+      {/* 6 Overlapping Cards Deck dengan Animasi Swipe */}
+      <div ref={cardsRef} className="flex items-center justify-center -space-x-3 sm:-space-x-4 md:-space-x-6 pt-4 pb-12 overflow-visible px-4">
+        {BIG_TECH_CARDS.map((card, idx) => {
+          const isLeftSide = idx < 3;
+          let transformStyle = '';
+
+          if (isCardsVisible) {
+            transformStyle = 'opacity-100 translate-x-0';
+          } else {
+            transformStyle = isLeftSide ? 'opacity-0 -translate-x-32' : 'opacity-0 translate-x-32';
+          }
+
+          return (
+            <div
+              key={card.id}
+              className={`w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-[20px] sm:rounded-[24px] md:rounded-[26px] shadow-[0_12px_32px_rgba(0,0,0,0.11)] border border-neutral-100/80 flex items-center justify-center p-3 sm:p-4 md:p-5 transform transition-all duration-700 ease-out hover:scale-110 hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.16)] hover:z-30 shrink-0 ${
+                card.rotate
+              } ${card.zIndex} ${card.elevated ? '-translate-y-2' : ''} ${transformStyle}`}
+            >
+              <img
+                src={card.icon}
+                alt={card.name}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = card.fallback;
+                }}
+                className="w-full h-full object-contain pointer-events-none drop-shadow-2xs select-none"
+              />
+            </div>
+          );
+        })}
       </div>
 
-      {/* Pill Mini Badges */}
-      <div className="space-y-4 mb-16">
+      {/* Pill Mini Badges dengan Animasi Drop Down (Masuk) & Drop Up (Keluar) */}
+      <div
+        ref={pillsRef}
+        className={`space-y-4 mb-16 transform transition-all duration-700 ease-out ${
+          isPillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+        }`}
+      >
         <div className="max-w-3xl mx-auto overflow-hidden relative py-1">
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent z-10" />
@@ -184,39 +245,48 @@ export default function TechnologyStack() {
         </div>
       </div>
 
-      {/* Legend Tingkatan Skill */}
-      <div className="flex flex-wrap items-center justify-end gap-4 text-sm font-mono text-neutral-500 mb-4 px-1">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#F3D94E]" /> Learning
+      {/* Legend Tingkatan Skill dengan Animasi Masuk/Keluar */}
+      <div
+        ref={legendRef}
+        className={`flex flex-wrap items-center justify-end gap-4 text-sm font-mono text-neutral-500 mb-4 px-1 transform transition-all duration-700 ease-out ${
+          isLegendVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-95'
+        }`}
+      >
+        <div className="flex items-center gap-1.5 transition-transform hover:scale-105">
+          <span className="w-2 h-2 rounded-full bg-[#F3D94E] animate-pulse" /> Learning
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#9BD8F5]" /> Proficient
+        <div className="flex items-center gap-1.5 transition-transform hover:scale-105">
+          <span className="w-2 h-2 rounded-full bg-[#9BD8F5] animate-pulse" /> Proficient
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#8BD8A8]" /> Advanced
+        <div className="flex items-center gap-1.5 transition-transform hover:scale-105">
+          <span className="w-2 h-2 rounded-full bg-[#8BD8A8] animate-pulse" /> Advanced
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#F3A8C8]" /> Expert
+        <div className="flex items-center gap-1.5 transition-transform hover:scale-105">
+          <span className="w-2 h-2 rounded-full bg-[#F3A8C8] animate-pulse" /> Expert
         </div>
       </div>
 
-      {/* Interactive Accordion Cards */}
-      <div className="space-y-3">
+      {/* Interactive Accordion Cards dengan Animasi Masuk/Keluar & Expand Halus */}
+      <div
+        ref={accordionRef}
+        className={`space-y-3 transform transition-all duration-700 ease-out ${
+          isAccordionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         {SKILL_CATEGORIES.map((cat) => {
           const isOpen = openCategory === cat.id;
 
           return (
             <div
               key={cat.id}
-              className="border rounded-xl overflow-hidden bg-white transition-all shadow-xs"
+              className="border rounded-xl overflow-hidden bg-white transition-all shadow-xs hover:border-neutral-400"
               style={{ borderColor: cat.borderColor || '#D8D8D8' }}
             >
               <button
                 onClick={() => toggleCategory(cat.id)}
-                className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-neutral-50/50 transition-colors"
+                className="w-full px-5 py-4 flex items-center justify-between text-left hover:bg-neutral-50/50 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-3.5">
-                  {/* Icon Kategori Sesuai Gambar UI Referensi */}
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center font-bold"
                     style={{
@@ -230,17 +300,25 @@ export default function TechnologyStack() {
                   <span className="font-bold text-sm tracking-tight font-mono text-[#111111]">{cat.title}</span>
                 </div>
                 <div className="flex items-center gap-3 text-neutral-400 text-xs font-mono">
-                  <span>{cat.count} Skills</span>
-                  {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  <span>{cat.skills.length} Skills</span>
+                  {/* Animasi Putar Ikon Panah */}
+                  <div className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-black' : 'rotate-0'}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </div>
               </button>
 
-              {isOpen && (
+              {/* Konten Accordion dengan Animasi Buka-Tutup (Fade-in Slide Down) */}
+              <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                  isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
                 <div className="px-5 pb-5 pt-3 border-t border-dashed border-[#E5E5E5] flex flex-wrap gap-2.5">
                   {cat.skills.map((s, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono shadow-2xs transition-all"
+                      className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono shadow-2xs transition-all transform hover:scale-105"
                       style={{
                         backgroundColor: cat.bgColor || '#FAFAFA',
                         border: `1px solid ${cat.borderColor || '#E0E0E0'}`,
@@ -254,7 +332,7 @@ export default function TechnologyStack() {
                     </div>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
           );
         })}

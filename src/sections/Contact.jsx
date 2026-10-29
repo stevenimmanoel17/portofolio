@@ -78,7 +78,6 @@ export default function Contact() {
             transform: translateY(0);
           }
           100% {
-            /* Bergeser tepat sejauh satu set data penuh (misal 4 item) agar transisi perulangannya tak terlihat patah */
             transform: translateY(calc(-100% / 3));
           }
         }
@@ -138,7 +137,6 @@ export default function Contact() {
                         <div className={`text-[10px] ${s.subText}`}>{s.val}</div>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 opacity-60" />
                   </a>
                 );
               })}

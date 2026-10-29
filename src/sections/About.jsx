@@ -5,14 +5,15 @@ export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // Animasi otomatis dipicu secara mulus oleh IntersectionObserver
+  // IntersectionObserver untuk mendeteksi saat masuk dan keluar layar secara dinamis
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // Akan bernilai true saat masuk layar, dan false saat keluar layar
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.12,
+        threshold: 0.15,
       }
     );
 
@@ -43,13 +44,12 @@ export default function About() {
 
   return (
     <section id="about" ref={sectionRef} className="pt-8 pb-16">
-      {/* Kontainer kartu dengan akselerasi GPU murni dan isolasi render */}
+      {/* Kontainer kartu dengan animasi masuk & keluar yang halus */}
       <div
-        style={{ contain: 'paint' }}
-        className={`w-full border border-[#D8D8D8] rounded-[24px] overflow-hidden bg-white shadow-sm transform transition-all duration-700 ease-out will-change-transform ${
+        className={`w-full border border-[#D8D8D8] rounded-[24px] overflow-hidden bg-white shadow-sm transform transition-all duration-500 ease-out ${
           isVisible
             ? 'opacity-100 translate-y-0 scale-100'
-            : 'opacity-0 translate-y-12 scale-[0.98]'
+            : 'opacity-0 translate-y-10 scale-[0.98]'
         }`}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
@@ -64,10 +64,9 @@ export default function About() {
               {ABOUT_DATA.headline}
             </h2>
 
-            <div className="space-y-4 text-xs sm:text-sm text-neutral-500 font-mono leading-relaxed">
-              {ABOUT_DATA.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+            {/* Paragraf digabung dan dibuat rata kiri-kanan (justify) */}
+            <div className="text-xs sm:text-sm text-neutral-500 font-mono leading-relaxed text-justify">
+              <p>{ABOUT_DATA.paragraphs.join(" ")}</p>
             </div>
           </div>
 
