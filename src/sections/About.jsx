@@ -9,7 +9,6 @@ export default function About() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Akan bernilai true saat masuk layar, dan false saat keluar layar
         setIsVisible(entry.isIntersecting);
       },
       {
@@ -54,30 +53,29 @@ export default function About() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
           
-          {/* Kolom Teks Konten */}
-          <div className="lg:col-span-7 p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
-            <span className="text-[#5EDDD0] font-bold text-xl font-mono mb-4 tracking-wide">
+          {/* Kolom Teks Konten (mempertahankan text-justify dan join) */}
+          <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
+            <span className="text-[#5EDDD0] font-bold text-sm sm:text-base font-mono mb-3 tracking-wide block">
               {ABOUT_DATA.tag || 'About'}
             </span>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold leading-[1.2] tracking-tight mb-6 text-[#111111]">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold leading-[1.25] tracking-tight mb-5 text-[#111111]">
               {ABOUT_DATA.headline}
             </h2>
 
-            {/* Paragraf digabung dan dibuat rata kiri-kanan (justify) */}
             <div className="text-xs sm:text-sm text-neutral-500 font-mono leading-relaxed text-justify">
               <p>{ABOUT_DATA.paragraphs.join(" ")}</p>
             </div>
           </div>
 
-          {/* Kolom Foto Full-Bleed */}
-          <div className="lg:col-span-5 relative min-h-[360px] lg:min-h-full w-full bg-neutral-100">
+          {/* Kolom Foto dengan posisi object-center di Android (mobile) dan object-bottom di Laptop (lg) */}
+          <div className="lg:col-span-5 relative min-h-[300px] sm:min-h-[360px] lg:min-h-full w-full bg-neutral-100 overflow-hidden">
             <img
               src={ABOUT_DATA.image}
               alt="Steven Immanoel Portrait"
-              loading="eager"
+              loading="lazy"
               decoding="async"
-              className="w-full h-full object-cover object-bottom absolute inset-0 select-none pointer-events-none"
+              className="w-full h-full object-cover object-center lg:object-bottom absolute inset-0 select-none pointer-events-none hover:scale-105 transition-transform duration-500"
             />
           </div>
 

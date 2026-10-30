@@ -148,12 +148,13 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Kolom Kanan: Tombol Media Sosial */}
-        <div className="flex flex-col items-start md:items-end shrink-0">
-          <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-4">
+        {/* Kolom Kanan: Tombol Media Sosial (Responsif: Mendatar di HP, Vertikal di Desktop) */}
+        <div className="flex flex-col items-start md:items-end shrink-0 w-full md:w-auto">
+          <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-3 md:mb-4">
             Connect
           </span>
-          <div className="flex flex-col gap-3.5 relative">
+          {/* Menggunakan flex-row di mobile/Android agar berderet rapi ke samping, dan flex-col di md (desktop) */}
+          <div className="flex flex-row md:flex-col gap-3 relative flex-wrap">
             {socials.map((s, idx) => {
               const IconComp = s.icon;
               const isHovered = hoveredIndex === idx;
@@ -169,17 +170,18 @@ export default function Hero() {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className={`w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#D8D8D8] flex items-center justify-center transform transition-all duration-300 ease-out active:scale-95 ${
+                    className={`w-11 h-11 md:w-14 md:h-14 rounded-full border border-[#D8D8D8] flex items-center justify-center transform transition-all duration-300 ease-out active:scale-95 ${
                       isHovered
                         ? 'bg-[#111111] text-white border-[#111111] scale-110 shadow-lg'
                         : 'bg-white text-neutral-700 hover:border-black hover:scale-105 shadow-2xs'
                     }`}
                   >
-                    <IconComp className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300" />
+                    <IconComp className="w-4 h-4 md:w-6 md:h-6 transition-transform duration-300" />
                   </a>
 
+                  {/* Tooltip label hanya muncul pada layar komputer atau saat interaksi hover */}
                   {isHovered && (
-                    <div className="absolute left-full ml-3.5 z-30 whitespace-nowrap bg-[#111111] text-white text-xs px-3.5 py-2 rounded-lg shadow-lg flex items-center gap-2 animate-in fade-in zoom-in-95 duration-200">
+                    <div className="hidden md:flex absolute left-full ml-3.5 z-30 whitespace-nowrap bg-[#111111] text-white text-xs px-3.5 py-2 rounded-lg shadow-lg items-center gap-2 animate-in fade-in zoom-in-95 duration-200">
                       <span>{s.label}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>

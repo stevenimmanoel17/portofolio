@@ -33,51 +33,56 @@ export default function Experience() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight font-mono">Work Experience</h2>
       </div>
 
-      {/* Kontainer utama dengan efek transisi muncul dari kiri ke kanan (-translate-x ke translate-x-0) */}
+      {/* Kontainer utama dengan efek transisi */}
       <div 
-        className={`relative space-y-12 transform transition-all duration-1000 ease-out ${
+        className={`relative transform transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
         }`}
       >
         
-        {/* Garis Vertikal Penghubung Antar Titik */}
-        <div className="absolute left-[167px] sm:left-[205px] top-3 bottom-3 w-[2px] bg-[#D8D8D8] pointer-events-none" />
+        {/* Garis Vertikal Utama: Responsif posisinya untuk Mobile dan Desktop */}
+        <div className="absolute left-[5px] sm:left-[173px] top-3 bottom-3 w-[2px] bg-[#D8D8D8] pointer-events-none" />
 
-        {EXPERIENCES.map((exp, idx) => (
-          <div key={idx} className="relative flex flex-col sm:flex-row items-baseline gap-4 sm:gap-8">
+        <div className="space-y-12">
+          {EXPERIENCES.map((exp, idx) => (
+            <div key={idx} className="relative flex flex-col sm:flex-row items-start sm:items-baseline gap-2 sm:gap-8">
 
-            <span className="w-36 text-sm font-mono text-neutral-500 shrink-0 font-medium">
-              {exp.period}
-            </span>
-            
-            {/* Container konten kanan */}
-            <div className="flex flex-col w-full ml-6 sm:ml-6">
-              {/* Baris Judul & Titik Indikator yang Sejajar */}
-              <div className="flex items-center gap-3">
-                <span
-                  className="w-3 h-3 rounded-full shrink-0 z-10 shadow-xs"
-                  style={{ backgroundColor: exp.dotColor }}
-                />
-                <h3 className="font-bold text-2xl tracking-tight leading-none text-[#111111]">
-                  {exp.company}
-                </h3>
-              </div>
+              {/* Periode Waktu */}
+              <span className="text-xs sm:text-sm font-mono text-neutral-500 shrink-0 font-medium sm:w-36 pl-6 sm:pl-0">
+                {exp.period}
+              </span>
+              
+              {/* Container Konten Kanan */}
+              <div className="flex flex-col w-full sm:ml-6 relative pl-6 sm:pl-0">
+                
+                {/* Baris Judul & Titik Indikator */}
+                <div className="flex items-center gap-3 relative">
+                  {/* Titik indikator presisi menempel di garis tanpa terpotong */}
+                  <span
+                    className="absolute -left-6 sm:-left-8 w-3 h-3 rounded-full shrink-0 z-10 shadow-xs"
+                    style={{ backgroundColor: exp.dotColor }}
+                  />
+                  <h3 className="font-bold text-xl sm:text-2xl tracking-tight leading-none text-[#111111]">
+                    {exp.company}
+                  </h3>
+                </div>
 
-              {/* Baris Role & Deskripsi */}
-              <div className="pl-6 sm:pl-6 mt-2.5">
-                <span 
-                  className="text-sm font-semibold block mb-2 font-mono"
-                  style={{ color: exp.dotColor }}
-                >
-                  {exp.role}
-                </span>
-                <p className="text-sm text-neutral-600 leading-relaxed max-w-2xl font-mono">
-                  {exp.description}
-                </p>
+                {/* Baris Role & Deskripsi */}
+                <div className="mt-2.5">
+                  <span 
+                    className="text-xs sm:text-sm font-semibold block mb-2 font-mono"
+                    style={{ color: exp.dotColor }}
+                  >
+                    {exp.role}
+                  </span>
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed max-w-2xl font-mono text-justify sm:text-left">
+                    {exp.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
