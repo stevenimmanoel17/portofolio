@@ -46,7 +46,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'javascript',
     name: 'JavaScript',
-    icon: '/assets/skills/javascript.png',
+    icon: '/assets/skills/js.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     rotate: 'rotate-[-5deg]',
     zIndex: 'z-20',
