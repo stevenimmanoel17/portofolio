@@ -20,7 +20,7 @@ export const ABOUT_DATA = {
     "Selalu antusias dalam memecahkan masalah teknis, mengoptimalkan proses bisnis, dan membangun solusi digital yang berorientasi pada kebutuhan pengguna."
   ],
   // Path foto profil almamater di folder public/assets/
-  image: "/public/assets/almameter.JPG", 
+  image: "/public/assets/almameter.jpg", 
 };
 
 // ==========================================
@@ -30,7 +30,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'html5',
     name: 'HTML 5',
-    icon: '/assets/skills/html5.svg',
+    icon: '/assets/skills/html5.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     rotate: 'rotate-[-2deg]',
     zIndex: 'z-0',
@@ -38,7 +38,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'css3',
     name: 'CSS 3',
-    icon: '/assets/skills/css3.svg',
+    icon: '/assets/skills/css3.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
     rotate: 'rotate-[1deg]',
     zIndex: 'z-10',
@@ -46,7 +46,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'javascript',
     name: 'JavaScript',
-    icon: '/assets/skills/javascript.svg',
+    icon: '/assets/skills/javascript.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     rotate: 'rotate-[-5deg]',
     zIndex: 'z-20',
@@ -55,7 +55,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'supabase',
     name: 'Supabase',
-    icon: '/assets/skills/supabase.svg',
+    icon: '/assets/skills/supabase.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg',
     rotate: 'rotate-[-2deg]',
     zIndex: 'z-30',
@@ -63,7 +63,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'mysql',
     name: 'MySQL',
-    icon: '/assets/skills/mysql.svg',
+    icon: '/assets/skills/mysql.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg',
     rotate: 'rotate-[2deg]',
     zIndex: 'z-40',
@@ -71,7 +71,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'php',
     name: 'PHP',
-    icon: '/assets/skills/php.svg',
+    icon: '/assets/skills/php.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
     rotate: 'rotate-[3deg]',
     zIndex: 'z-50',
