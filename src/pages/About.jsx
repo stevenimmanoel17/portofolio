@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ABOUT_DATA } from '../data/portfolioData';
 
+import aboutimg from '../assets/images/IMG_7512.jpg';
+
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -71,7 +73,7 @@ export default function About() {
           {/* Kolom Foto dengan posisi object-center di Android (mobile) dan object-bottom di Laptop (lg) */}
           <div className="lg:col-span-5 relative min-h-[300px] sm:min-h-[360px] lg:min-h-full w-full bg-neutral-100 overflow-hidden">
             <img
-              src={ABOUT_DATA.image}
+              src={aboutimg}
               alt="Steven Immanoel Portrait"
               loading="lazy"
               decoding="async"
