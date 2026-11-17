@@ -98,7 +98,7 @@ export default function Hero() {
           <div className="flex items-center gap-4 sm:gap-5 mb-8">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full p-[4px] bg-gradient-to-tr from-[#8BD8A8] via-[#F3D94E] via-[#F58A8A] to-[#9BD8F5] shadow-sm shrink-0">
               <img
-                src="/assets/avatar.jfif"
+                src="/src/assets/images/avatar.jfif"
                 alt="Steven Immanoel"
                 className="w-full h-full object-cover object-top rounded-full bg-white"
               />

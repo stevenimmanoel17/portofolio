@@ -1,13 +1,13 @@
 import React from 'react';
 import MiniPillNav from './components/MiniPillNav';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import TechnologyStack from './sections/TechnologyStack';
-import Projects from './sections/Projects';
-import Experience from './sections/Experience';
-import Education from './sections/Education';
-import Contact from './sections/Contact';
-import Footer from './sections/Footer';
+import Hero from './pages/Hero';
+import About from './pages/About';
+import TechnologyStack from './pages/TechnologyStack';
+import Projects from './pages/Projects';
+import Experience from './pages/Experience';
+import Education from './pages/Education';
+import Contact from './pages/Contact';
+import Footer from './pages/Footer';
 
 export default function App() {
   return (
