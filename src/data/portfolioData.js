@@ -20,7 +20,7 @@ export const ABOUT_DATA = {
     "Selalu antusias dalam memecahkan masalah teknis, mengoptimalkan proses bisnis, dan membangun solusi digital yang berorientasi pada kebutuhan pengguna."
   ],
   // Path foto profil almamater di folder public/assets/
-  image: "/src/assets/images/IMG_7512.JPG", 
+  image: "/public/assets/images/IMG_7512.jpg", 
 };
 
 // ==========================================
@@ -30,7 +30,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'html5',
     name: 'HTML 5',
-    icon: '/src/assets/skills/html5.png',
+    icon: '/public/assets/skills/html5.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     rotate: 'rotate-[-2deg]',
     zIndex: 'z-0',
@@ -38,7 +38,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'css3',
     name: 'CSS 3',
-    icon: '/src/assets/skills/css3.png',
+    icon: '/public/assets/skills/css3.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
     rotate: 'rotate-[1deg]',
     zIndex: 'z-10',
@@ -46,7 +46,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'javascript',
     name: 'JavaScript',
-    icon: '/src/assets/skills/js.png',
+    icon: '/public/assets/skills/js.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     rotate: 'rotate-[-5deg]',
     zIndex: 'z-20',
@@ -55,7 +55,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'supabase',
     name: 'Supabase',
-    icon: '/src/assets/skills/supabase.png',
+    icon: '/public/assets/skills/supabase.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg',
     rotate: 'rotate-[-2deg]',
     zIndex: 'z-30',
@@ -63,7 +63,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'mysql',
     name: 'MySQL',
-    icon: '/src/assets/skills/mysql.png',
+    icon: '/public/assets/skills/mysql.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg',
     rotate: 'rotate-[2deg]',
     zIndex: 'z-40',
@@ -71,7 +71,7 @@ export const BIG_TECH_CARDS = [
   {
     id: 'php',
     name: 'PHP',
-    icon: '/src/assets/skills/php.png',
+    icon: '/public/assets/skills/php.png',
     fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
     rotate: 'rotate-[3deg]',
     zIndex: 'z-50',
@@ -82,23 +82,23 @@ export const BIG_TECH_CARDS = [
 // TECHNOLOGY STACK - PILL MINI BADGES
 // ==========================================
 export const PILL_ROW_1 = [
-  { name: 'HTML5', icon: '/src/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  { name: 'CSS', icon: '/src/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'Java Script', icon: '/src/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'Supabase', icon: '/src/assets/skills/supabase.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
-  { name: 'PHP', icon: '/src/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-  { name: 'MySQL', icon: '/src/assets/skills/mysql.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  { name: 'Arduino IDE', icon: '/src/assets/skills/arduino.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg' 
+  { name: 'HTML5', icon: '/public/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS', icon: '/public/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'Java Script', icon: '/public/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'Supabase', icon: '/public/assets/skills/supabase.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
+  { name: 'PHP', icon: '/public/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+  { name: 'MySQL', icon: '/public/assets/skills/mysql.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  { name: 'Arduino IDE', icon: '/public/assets/skills/arduino.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg' 
 },
 ];
 
 export const PILL_ROW_2 = [
-  { name: 'Python', icon: '/src/assets/skills/python.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'Figma', icon: '/src/assets/skills/figma.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-  { name: 'Canva', icon: '/src/assets/skills/canva.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
-  { name: 'Word', icon: '/src/assets/skills/word.png', fallback: 'https://img.icons8.com/color/48/microsoft-word-2019--v2.png' },
-  { name: 'Excel', icon: '/src/assets/skills/excel.png', fallback: 'https://img.icons8.com/color/48/microsoft-excel-2019--v1.png' },
-  { name: 'Power Point', icon: '/src/assets/skills/ppt.png', fallback: 'https://img.icons8.com/color/48/microsoft-powerpoint-2019--v1.png' },
+  { name: 'Python', icon: '/public/assets/skills/python.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'Figma', icon: '/public/assets/skills/figma.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+  { name: 'Canva', icon: '/public/assets/skills/canva.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
+  { name: 'Word', icon: '/public/assets/skills/word.png', fallback: 'https://img.icons8.com/color/48/microsoft-word-2019--v2.png' },
+  { name: 'Excel', icon: '/public/assets/skills/excel.png', fallback: 'https://img.icons8.com/color/48/microsoft-excel-2019--v1.png' },
+  { name: 'Power Point', icon: '/public/assets/skills/ppt.png', fallback: 'https://img.icons8.com/color/48/microsoft-powerpoint-2019--v1.png' },
 ];
 
 // ==========================================
@@ -177,9 +177,9 @@ export const PROJECTS = [
     description: 'A responsive web application built with clean architecture, modern React components, and performance optimization.',
     // Ubah tags menjadi objek yang memiliki nama dan path ikon
     tags: [
-      { name: 'HTML5', icon: '/src/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-      { name: 'CSS3', icon: '/src/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-      { name: 'JavaScript', icon: '/src/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
+      { name: 'HTML5', icon: '/public/assets/skills/html5.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+      { name: 'CSS3', icon: '/public/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'JavaScript', icon: '/public/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
     ],
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&auto=format&fit=crop&q=70',
     link: '#'
@@ -190,9 +190,9 @@ export const PROJECTS = [
     title: 'Coding Project 02',
     description: 'Full-stack application featuring database management, structured REST APIs, and automated UI interactions.',
     tags: [
-      { name: 'React', icon: '/src/assets/skills/react.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-      { name: 'Tailwind', icon: '/src/assets/skills/tailwind.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-      { name: 'PHP', icon: '/src/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' }
+      { name: 'React', icon: '/public/assets/skills/react.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+      { name: 'Tailwind', icon: '/public/assets/skills/tailwind.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'PHP', icon: '/public/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' }
     ],
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&auto=format&fit=crop&q=70',
     link: '#'
@@ -203,9 +203,9 @@ export const PROJECTS = [
     title: 'Coding Project 03',
     description: 'Internal operational dashboard with data filtering, reactive UI, and clean data modeling.',
     tags: [
-      { name: 'PHP', icon: '/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-      { name: 'MySQL', icon: '/src/assets/skills/mysql.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-      { name: 'Supabase', icon: '/src/assets/skills/supabase.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' }
+      { name: 'PHP', icon: '/public/assets/skills/php.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+      { name: 'MySQL', icon: '/public/assets/skills/mysql.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+      { name: 'Supabase', icon: '/public/assets/skills/supabase.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' }
     ],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&auto=format&fit=crop&q=70',
     link: '#'
@@ -216,9 +216,9 @@ export const PROJECTS = [
     title: 'Coding Project 04',
     description: 'Portfolio design system recreation with custom CSS layout grids, monospace typography, and retro components.',
     tags: [
-      { name: 'Figma', icon: '/src/assets/skills/figma.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-      { name: 'CSS3', icon: '/src/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-      { name: 'JavaScript', icon: '/src/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
+      { name: 'Figma', icon: '/public/assets/skills/figma.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+      { name: 'CSS3', icon: '/public/assets/skills/css3.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      { name: 'JavaScript', icon: '/public/assets/skills/js.png', fallback: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
     ],
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&auto=format&fit=crop&q=70',
     link: '#'
