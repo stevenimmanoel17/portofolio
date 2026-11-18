@@ -20,7 +20,7 @@ export const ABOUT_DATA = {
     "Selalu antusias dalam memecahkan masalah teknis, mengoptimalkan proses bisnis, dan membangun solusi digital yang berorientasi pada kebutuhan pengguna."
   ],
   // Path foto profil almamater di folder public/assets/
-  image: "/assets/images/IMG_7512.JPG", 
+  image: "/assets/images/about.jpg", 
 };
 
 // ==========================================
