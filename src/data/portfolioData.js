@@ -5,7 +5,7 @@ export const HERO_DATA = {
   name: "Steven Immanoel",
   headline: "Designing and building a website that supports your needs.",
   subtitle: "Junior Web-Development .",
-  cvUrl: "public/docs/CV ATS_Steven Immanoel_9.pdf", // Ganti dengan path file CV Anda di public/assets/ (contoh: '/assets/cv.pdf')
+  cvUrl: "/docs/CV ATS_Steven Immanoel_9.pdf", // Ganti dengan path file CV Anda di public/assets/ (contoh: '/assets/cv.pdf')
 };
 
 // ==========================================
@@ -20,7 +20,7 @@ export const ABOUT_DATA = {
     "Selalu antusias dalam memecahkan masalah teknis, mengoptimalkan proses bisnis, dan membangun solusi digital yang berorientasi pada kebutuhan pengguna."
   ],
   // Path foto profil almamater di folder public/assets/
-  image: "/assets/images/IMG_7512.jpg", 
+  image: "/assets/images/IMG_7512.JPG", 
 };
 
 // ==========================================
